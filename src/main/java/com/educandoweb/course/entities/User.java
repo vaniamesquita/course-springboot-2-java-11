@@ -3,13 +3,21 @@ package com.educandoweb.course.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 	/* definimos o serializable nos objetos, quando queremos que ele seja transformado em cadeia de bytes
 	para que o objeto trafegue na rede, para que possa ser gravado em arquivo e etc */
 
+@Entity
 public class User implements Serializable{
-	
-	
+		
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // para a id ser autoincrementavel no banco de dados
 	private Long id;
 	private String name;
 	private String email;

@@ -12,12 +12,12 @@ import com.educandoweb.course.entities.User;
 	 */
 
 	
-@RestController // para informar que esse classe é recurso web que é implementado por um controlador rest, colocamos a anotation @RestController
+@RestController // para informar que essa classe é recurso web que é implementado por um controlador rest, colocamos a anotation @RestController
 @RequestMapping(value = "/users")
 public class UserResource { //metodo que vai ser um endpoint para acessar os usuários
 	
 	@GetMapping
-	public ResponseEntity<User> findAll() { //generics, espera um tipo dentro. e o tipo da resposta eh a classe user
+	public ResponseEntity<User> findAll() { //generics, espera um tipo dentro, e o tipo da resposta eh a classe user <User>
 		User u = new User(1L, "Maria", "maria@gmail.com", "999999999", "12345");
 		return ResponseEntity.ok().body(u);
 	
