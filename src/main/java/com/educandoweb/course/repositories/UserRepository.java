@@ -6,7 +6,7 @@ import com.educandoweb.course.entities.User;
 
 
 // instanciar um objeto repository que vai ter varias operações para trabalhar com usuário
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UserRepository extends JpaRepository<User, Long>{ //User: tipo da entidade, Long: tipo da ID
 	
 
 }

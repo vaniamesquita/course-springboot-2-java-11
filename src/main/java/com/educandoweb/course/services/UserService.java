@@ -10,7 +10,7 @@ import com.educandoweb.course.entities.User;
 import com.educandoweb.course.repositories.UserRepository;
 
 
-@Service
+@Service //registrar um sevriço na camada de serviço
 public class UserService {
 	
 	//dependencia para o UserRespository
@@ -22,9 +22,10 @@ public class UserService {
 		return repository.findAll();
 	}
 	
+	//metodo para retornar usuário por id
 	public User findById(Long id) {
 		Optional <User> obj = repository.findById(id);
-		return obj.get();
+		return obj.get(); // vai retornar o objeto do tipo User que estiver dentro do option
 		
 	}
 }
