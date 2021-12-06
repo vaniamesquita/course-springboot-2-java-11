@@ -9,8 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tb_product") 
@@ -33,8 +35,12 @@ public class Product implements Serializable {
 	 * Usamos o HashSet ao inves do set, pq o set é uma interface, não pode ser instanciado, por isso temos q usar uma classe referente a essa interface
 	 * do mesmo jeito que usamos o List e ArrayList, usamos o Set e o HashSet
 	 */
-	@Transient
-	private Set<Category> categories = new HashSet<>();
+	
+	@ManyToMany
+	@JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"),
+	inverseJoinColumns = @JoinColumn(name = "category_id"))
+	//Tabela de associação joincolumns = chave estrangeira | inversejoincolumns = decidir qual vai ser a chave estrangeira da outra entidade
+	private Set<Category> categories = new HashSet<>(); //coleção de categorias
 	
 	public Product() {
 		
